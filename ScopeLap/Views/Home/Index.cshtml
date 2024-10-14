@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Доброй пожаловать в ScopeLap!</h1>
+    <h2>Социальная сеть гоночной трассы Нюрбургринг</h2>
+</div>
+
+<div class="text-center">
+    
+    <h3><br>Вход<br></h3>
+
+    <form action="">
+        <div>
+            <label for="first">
+                Электронная почта:
+            </label>
+            <input type="email" id="first" name="first" placeholder="введите адрес электронной почты" required>
+            <br><br>
+
+            <label for="password">
+                Пароль:
+            </label>
+            <input type="password" id="password" name="password" placeholder="введите пароль" required>
+        </div>
+        <br>
+        <div class="wrap">
+            <button type="submit" onclick="solve()">
+                Войти
+            </button>
+        </div>
+    </form>
+
+    <p>
+        Ещё не зарегистрированы?
+        <a href="#" style="text-decoration: none;">
+            Создать учетную запись
+        </a>
+    </p>
+</div>
