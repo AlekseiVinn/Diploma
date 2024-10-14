@@ -23,8 +23,6 @@ namespace ScopeLap.DataBaseEngine
         
         public DbSet<TrackDay> TrackDays{ get; set; }
         
-        public DbSet<User> Users { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TrackConfiguration>()

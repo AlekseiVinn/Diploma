@@ -30,24 +30,23 @@ namespace ScopeLap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Firstname")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("HashPass")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Lastname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("Accounts");
                 });
@@ -66,15 +65,16 @@ namespace ScopeLap.Migrations
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("ModDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<bool>("Modified")
                         .HasColumnType("bit");
@@ -97,7 +97,8 @@ namespace ScopeLap.Migrations
 
                     b.Property<string>("CommentText")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("Commented")
                         .HasColumnType("datetime2");
@@ -160,7 +161,8 @@ namespace ScopeLap.Migrations
 
                     b.Property<string>("PostText")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("Posted")
                         .HasColumnType("datetime2");
@@ -241,40 +243,6 @@ namespace ScopeLap.Migrations
                     b.HasIndex("TracksId");
 
                     b.ToTable("TrackDays");
-                });
-
-            modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HashPass")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("ScopeLap.DataBaseEngine.Account", b =>
-                {
-                    b.HasOne("ScopeLap.Models.DataBaseEngine.User", "User")
-                        .WithOne("UserAccount")
-                        .HasForeignKey("ScopeLap.DataBaseEngine.Account", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.Commentary", b =>
@@ -370,11 +338,6 @@ namespace ScopeLap.Migrations
             modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.Track", b =>
                 {
                     b.Navigation("TrackConfigurations");
-                });
-
-            modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.User", b =>
-                {
-                    b.Navigation("UserAccount");
                 });
 #pragma warning restore 612, 618
         }

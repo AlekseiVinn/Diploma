@@ -1,9 +1,11 @@
 ﻿using ScopeLap.DataBaseEngine;
+using System.ComponentModel.DataAnnotations;
 
 namespace ScopeLap.Models.DataBaseEngine
 {
     public class LapSession
     {
+        [Key]
         public int Id { get; set; }
 
         public int LapTime { get; set; }
