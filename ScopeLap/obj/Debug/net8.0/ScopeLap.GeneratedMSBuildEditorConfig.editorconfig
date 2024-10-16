@@ -26,30 +26,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\2023 - software engineer\DIPLOMA\ScopeLap
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Accounts/----Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcLS0tLUluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Accounts/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Accounts/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Accounts/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Accounts/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Accounts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

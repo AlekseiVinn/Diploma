@@ -7,22 +7,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ScopeLap.DataBaseEngine
 {
+    [Index(nameof(Email), IsUnique = true)]
+    [Index(nameof(Username), IsUnique = true)]
     public class Account
     {
-        [Required]
-        [PasswordPropertyText]
-        public string HashPass { get; set; }
-
-        [Required]
-        [UniqueMail(ErrorMessage = "Email already taken")]
-        [EmailAddress]
-        public string Email { get; set; }
-
         [Key]
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(20, ErrorMessage = "BloggerName must be 20 characters or less"), MinLength(2)]
+        public string HashPass { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        public string Username { get; set; }
+
+        [Required]
+        [MaxLength(20, ErrorMessage = "Name must be 20 characters or less"), MinLength(2)]
         public string Firstname { get; set; }
 
         public string? Lastname { get; set; }

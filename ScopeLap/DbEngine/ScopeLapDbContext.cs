@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 using ScopeLap.Models.DataBaseEngine;
 
 namespace ScopeLap.DataBaseEngine
