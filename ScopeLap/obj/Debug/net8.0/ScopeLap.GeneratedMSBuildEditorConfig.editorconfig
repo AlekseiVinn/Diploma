@@ -26,6 +26,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\2023 - software engineer\DIPLOMA\ScopeLap
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Account/Registration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Account/SecurePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZWN1cmVQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

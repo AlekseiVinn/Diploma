@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ScopeLap.Models
 {
@@ -9,10 +10,9 @@ namespace ScopeLap.Models
         [MaxLength(20), MinLength(6)]
         public string HashPass { get; set; }
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
-
-        public string Username { get; set; }
+        [Required(ErrorMessage = "Username required.")]
+        [MaxLength(20, ErrorMessage = "Must be 20 characters or less"), MinLength(4)]
+        [DisplayName("Пользователь или электронная почта")]
+        public string UsernameOrEmail { get; set; }
     }
 }

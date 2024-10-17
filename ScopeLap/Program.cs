@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using ScopeLap.DataBaseEngine;
+using System.Net;
 
 namespace ScopeLap
 {
@@ -23,6 +25,8 @@ namespace ScopeLap
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
 
             var app = builder.Build();
 
@@ -39,6 +43,7 @@ namespace ScopeLap
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

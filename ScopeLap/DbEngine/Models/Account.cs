@@ -20,18 +20,22 @@ namespace ScopeLap.DataBaseEngine
         [Required]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Username required.")]
+        [MaxLength(20, ErrorMessage = "Must be 20 characters or less"), MinLength(4)]
+
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Firstname required.")]
         [MaxLength(20, ErrorMessage = "Name must be 20 characters or less"), MinLength(2)]
         public string Firstname { get; set; }
 
+        [MaxLength(30, ErrorMessage = "Name must be 20 characters or less"), MinLength(6)]
         public string? Lastname { get; set; }
 
         public ICollection<Post> Posts { get; } = new List<Post>();
 
         public List<Commentary> Commentaries { get; } = [];
 
-        public List<LapSession> Sessions { get; } = [];
+        public List<LapSession> Sessions { get; } = []; 
     }
 }
