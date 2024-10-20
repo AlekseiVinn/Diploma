@@ -1,42 +1,53 @@
-﻿@{
+﻿@model LoginViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
+
+
 
 <div class="text-center">
     <h1 class="display-4">Доброй пожаловать в ScopeLap!</h1>
     <h2>Социальная сеть гоночной трассы Нюрбургринг</h2>
 </div>
 
-
-
 <div class="text-center">
     
     <h3><br>Вход<br></h3>
 
-    <form action="">
-        <div>
-            <label for="first">
-                Электронная почта:
-            </label>
-            <input type="email" id="first" name="first" placeholder="введите адрес электронной почты" required>
-            <br><br>
+    <form asp-action="Index">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UsernameOrEmail" class="control-label">
+                    Электронная почта или логин:
+                </label>
+                <input asp-for="UsernameOrEmail" class="form-control" type="email" 
+                    placeholder="введите адрес электронной почты (логин)"/>
+                <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="HashPass" class="control-label">
+                    Пароль:
+                </label>
+                <input asp-for="HashPass" class="form-control" type="password"
+                       placeholder="введите пароль" />
+                <span asp-validation-for="HashPass" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    Войти
+                </button>
+            </div>
 
-            <label for="password">
-                Пароль:
-            </label>
-            <input type="password" id="password" name="password" placeholder="введите пароль" required>
-        </div>
-        <br>
-        <div class="wrap">
-            <button type="submit" onclick="solve()">
-                Войти
-            </button>
-        </div>
     </form>
 
     <p>
         Ещё не зарегистрированы?
-        <a asp-area="" asp-controller="Accounts" asp-action="Create">
+        <a asp-area="" asp-controller="Account" asp-action="Registration">
             Создать учетную запись
         </a>
     </p>

@@ -10,22 +10,52 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Login">
+        <form asp-action="Registration">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (ViewBag.Message != null)
+            {
+                <br><div class="form-group" style="color: forestgreen">@ViewBag.Message</div><br>
+            }
+
             <div class="form-group">
-                <label asp-for="UsernameOrEmail" class="control-label"></label>
-                <input asp-for="UsernameOrEmail" class="form-control" />
-                <span asp-validation-for="UsernameOrEmail" class="text-danger"></span>
+                <label asp-for="Username" class="control-label">Логин:</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HashPass" class="control-label"></label>
+                <label asp-for="Firstname" class="control-label">Имя:</label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label">Фамилия:</label>
+                <input asp-for="Lastname" class="form-control" placeholder="необязательное поле"/>
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email:</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HashPass" class="control-label">Пароль: </label>
                 <input asp-for="HashPass" class="form-control" />
                 <span asp-validation-for="HashPass" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                <label asp-for="HashCheck" class="control-label">Повторите пароль: </label>
+                <input asp-for="HashCheck" class="form-control" />
+                <span asp-validation-for="HashCheck" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Зарегистрировать польхователя." class="btn btn-primary" />
+                <a asp-controller="Home" asp-action="Index">Отмена</a>
             </div>
         </form>
 
     </div>
 </div>
+
+

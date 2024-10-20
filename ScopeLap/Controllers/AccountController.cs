@@ -80,15 +80,16 @@ namespace ScopeLap.Controllers
                     //cookie
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, user.Email),
+                        new Claim(ClaimTypes.Name, user.Username),
                         new Claim("Name", user.Firstname),
+                        new Claim("Id", user.Id.ToString()),
                         new Claim(ClaimTypes.Role, "User")
                     };
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                    return RedirectToAction("SecurePage");
+                    return RedirectToAction("UserPage");
                 }
                 else
                 {
@@ -100,16 +101,18 @@ namespace ScopeLap.Controllers
         }
 
         [Authorize]
-        public IActionResult SecurePage() 
+        public IActionResult UserPage() 
         {
-            ViewBag.Name = HttpContext.User.Identity.Name;
+            ViewBag.UserName = HttpContext.User.Identity.Name;
+            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
             return View(); 
         }
 
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
 
