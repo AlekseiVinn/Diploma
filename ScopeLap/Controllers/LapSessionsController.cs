@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using ScopeLap.Models.DataBaseEngine;
 
 namespace ScopeLap.Controllers
 {
+    [Authorize]
     public class LapSessionsController : Controller
     {
         private readonly ScopeLapDbContext _context;
@@ -49,8 +52,18 @@ namespace ScopeLap.Controllers
         // GET: LapSessions/Create
         public IActionResult Create()
         {
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "Id", "Email");
-            ViewData["CarId"] = new SelectList(_context.Cars, "Id", "Manufacturer");
+            ViewBag.UserName = HttpContext.User.Identity.Name;
+            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+
+            var cars = _context.Cars
+                .Select(x => new 
+                    { 
+                        CarId = x.Id,
+                        Name = $"{x.Manufacturer} {x.Model} - {x.Description}"
+                    }).ToList();
+
+            ViewData["Car"] = new SelectList(cars, "CarId", "Name");
             return View();
         }
 

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScopeLap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5270c5e057a304e6880571ff6e6ffd2a10377e8a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+340c9b618dde779dc9a377353a820b23b6872a42")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScopeLap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScopeLap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

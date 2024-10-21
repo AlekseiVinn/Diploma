@@ -4,16 +4,48 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h4> @ViewBag.UserName</h4>
 
-<h4>LapSession</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>
+                ID: @ViewBag.Id | @ViewBag.FisrtName
+                <br>
+                <a href="#">Лучший результат:</a>
+                <br>
+                -------Лучший результат:
+                <br>
+                -------трасса:
+                <br>
+                -------конфигурация:
+                <br>
+                -------авто:
+            </p>
+            <li>
+                <a href="#">Посмотреть свои заезды</a>
+            </li>
+            <li>
+                <a asp-controller="LapSessions" asp-action="Create">Добавить новый заезд</a>
+            </li>
+            <br>
+            <li>
+                <a href="#">Добавить публикацию</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <h4>Новый заезд</h4>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="LapTime" class="control-label"></label>
+                <label asp-for="LapTime" class="control-label">Время круга:</label>
                 <input asp-for="LapTime" class="form-control" />
                 <span asp-validation-for="LapTime" class="text-danger"></span>
             </div>
@@ -23,21 +55,22 @@
                 <span asp-validation-for="LapNote" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AccountId" class="control-label"></label>
-                <select asp-for="AccountId" class ="form-control" asp-items="ViewBag.AccountId"></select>
+                <label asp-for="Car" class="control-label">Автомобиль:</label>
+                <select asp-for="Car" class="form-control" asp-items="ViewBag.Car"></select>
+                <br>
+                <button class="btn btn-secondary" asp-controller="Car" asp-action="Create">Добавить новое авто</button>
+                
             </div>
             <div class="form-group">
-                <label asp-for="CarId" class="control-label"></label>
-                <select asp-for="CarId" class ="form-control" asp-items="ViewBag.CarId"></select>
-            </div>
-            <div class="form-group">
+                <br>
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-controller="Account" asp-action="UserPage">Назад</a>
             </div>
         </form>
+
+
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
