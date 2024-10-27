@@ -40,15 +40,16 @@ namespace ScopeLap.Controllers
                     //cookie
                     var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.Name, user.Email),
+                            new Claim(ClaimTypes.Name, user.Username),
                             new Claim("Name", user.Firstname),
+                            new Claim("Id", user.Id.ToString()),
                             new Claim(ClaimTypes.Role, "User")
                         };
 
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                    return RedirectToAction("SecurePage", "Account");
+                    return RedirectToAction("UserPage", "Account");
                 }
                 else
                 {

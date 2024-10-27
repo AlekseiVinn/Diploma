@@ -49,39 +49,7 @@
 
 <div class="wrapper">
     <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h4> @ViewBag.UserName</h4>
-            
-        </div>
-
-        <ul class="list-unstyled components">
-            <p>
-                ID: @ViewBag.Id | @ViewBag.FisrtName
-                <br>
-                <a href="#">Лучший результат:</a>
-                <br>
-                -------Лучший результат:
-                <br>
-                -------трасса:
-                <br>
-                -------конфигурация:
-                <br>
-                -------авто:
-            </p>
-            <li>
-                <a href="#">Посмотреть свои заезды</a>
-            </li>
-            <li>
-                <a asp-controller="LapSessions" asp-action="Create">Добавить новый заезд</a>
-                <
-            </li>
-                <br>
-            <li>
-                <a href="#">Добавить публикацию</a>
-            </li>
-        </ul>
-    </nav>
+    @await Html.PartialAsync("Account/_SidePanel")
 
     <!-- Page Content  -->
     <div id="content">

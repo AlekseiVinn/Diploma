@@ -1,46 +1,153 @@
-﻿@model ScopeLap.Models.DataBaseEngine.LapSession
+﻿@using ScopeLap.Models
+@model SessionViewModel
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>LapSession</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="wrapper">
+    <!-- Sidebar  -->
+    @await Html.PartialAsync("Account/_SidePanel")
+
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <h1>Редактирование заезда:</h1>
+        <h4>
+            Водитель: @ViewBag.Username
+        </h4>
+
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (ViewBag.Message != null)
+            {
+                <br>
+
+                <div class="form-group" style="color: forestgreen">@ViewBag.Message</div>
+
+                <br>
+            }
+
+            <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            @if (ViewBag.MessageError != null)
+            {
+                <br>
+
+                <div class="form-group" style="color: red">@ViewBag.MessageError</div>
+
+                <br>
+            }
+
+            <table style="margin:auto" width="100%">
+                <tr>
+                    <td colspan="1">
+                        <div>
+                            <p>Прежнее время:<br>
+                                @ViewBag.Time
+                            </p>
+                        </div>
+                    </td>
+
+                    <td colspan="1">
+                        <div class="form-group">
+                            <label asp-for="Minutes" class="control-label">Минуты:</label>
+                            <input asp-for="Minutes" class="form-control" />
+                            <span asp-validation-for="Minutes" class="text-danger"></span>
+                        </div>
+                    </td>
+
+                    <td colspan="1">
+                        <div class="form-group">
+                            <label asp-for="Seconds" class="control-label">Секунды:</label>
+                            <input asp-for="Seconds" class="form-control" />
+                            <span asp-validation-for="Seconds" class="text-danger"></span>
+                        </div>
+                    </td>
+
+                    <td colspan="1">
+                        <div class="form-group">
+                            <label asp-for="Miliseconds" class="control-label">Милисекунды:</label>
+                            <input asp-for="Miliseconds" class="form-control" />
+                            <span asp-validation-for="Miliseconds" class="text-danger"></span>
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <div>
+                            <p>
+                                Прежний автомобиль:<br>
+                                @ViewBag.Car
+                            </p>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label asp-for="CarID" class="control-label">Авто</label>
+                            <select asp-for="CarID" class="form-control" asp-items="ViewBag.Cars"></select>
+                            <span asp-validation-for="CarID" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div>
+                            <p>
+                                Прежняя дата:<br>
+                                @ViewBag.SessionDate
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label asp-for="SessionDate" class="control-label">Дата заезда:</label>
+                            <input type="date" asp-for="SessionDate" value="@ViewBag.DefaultDate" class="form-control"></>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="1">
+                        <div>
+                            <p>
+                                Прежняя трасса:<br>
+                                @ViewBag.Track
+                            </p>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="form-group">
+                            <label asp-for="TrackConfId" class="control-label">Трасса:</label>
+                            <select asp-for="TrackConfId" class="form-control dropdown" asp-items="ViewBag.Tracks"></select>
+                            <br>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <p>Дополнительное описание заезда (опционально):</p>
+                        <div class="form-group">
+                            <textarea rows="5" asp-for="LapNote" class="form-control">@ViewBag.SessionNote</textarea>
+                            <span asp-validation-for="LapNote" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+
+
+            </table>
+
             <div class="form-group">
-                <label asp-for="LapTime" class="control-label"></label>
-                <input asp-for="LapTime" class="form-control" />
-                <span asp-validation-for="LapTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LapNote" class="control-label"></label>
-                <input asp-for="LapNote" class="form-control" />
-                <span asp-validation-for="LapNote" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccountId" class="control-label"></label>
-                <select asp-for="AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
-                <span asp-validation-for="AccountId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CarId" class="control-label"></label>
-                <select asp-for="CarId" class="form-control" asp-items="ViewBag.CarId"></select>
-                <span asp-validation-for="CarId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <br>
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+                <a asp-action="MySessions">Назад к своимм заездам</a>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

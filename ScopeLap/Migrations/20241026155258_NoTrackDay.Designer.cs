@@ -12,8 +12,8 @@ using ScopeLap.DataBaseEngine;
 namespace ScopeLap.Migrations
 {
     [DbContext(typeof(ScopeLapDbContext))]
-    [Migration("20241019223506_inital")]
-    partial class inital
+    [Migration("20241026155258_NoTrackDay")]
+    partial class NoTrackDay
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,11 +150,19 @@ namespace ScopeLap.Migrations
                     b.Property<int>("LapTime")
                         .HasColumnType("int");
 
+                    b.Property<DateOnly>("TrackDate")
+                        .HasColumnType("date");
+
+                    b.Property<int?>("TrackId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AccountId");
 
                     b.HasIndex("CarId");
+
+                    b.HasIndex("TrackId");
 
                     b.ToTable("Sessions");
                 });
@@ -231,35 +239,6 @@ namespace ScopeLap.Migrations
                     b.ToTable("TrackConfigurations");
                 });
 
-            modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.TrackDay", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("LapSessionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TrackConfigId")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("TrackDate")
-                        .HasColumnType("date");
-
-                    b.Property<int>("TracksId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LapSessionId");
-
-                    b.HasIndex("TracksId");
-
-                    b.ToTable("TrackDays");
-                });
-
             modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.Commentary", b =>
                 {
                     b.HasOne("ScopeLap.DataBaseEngine.Account", "Account")
@@ -289,9 +268,15 @@ namespace ScopeLap.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ScopeLap.Models.DataBaseEngine.TrackConfiguration", "Track")
+                        .WithMany("Sessions")
+                        .HasForeignKey("TrackId");
+
                     b.Navigation("Account");
 
                     b.Navigation("Car");
+
+                    b.Navigation("Track");
                 });
 
             modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.Post", b =>
@@ -316,21 +301,6 @@ namespace ScopeLap.Migrations
                     b.Navigation("Track");
                 });
 
-            modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.TrackDay", b =>
-                {
-                    b.HasOne("ScopeLap.Models.DataBaseEngine.LapSession", null)
-                        .WithMany()
-                        .HasForeignKey("LapSessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ScopeLap.Models.DataBaseEngine.TrackConfiguration", null)
-                        .WithMany()
-                        .HasForeignKey("TracksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ScopeLap.DataBaseEngine.Account", b =>
                 {
                     b.Navigation("Commentaries");
@@ -353,6 +323,11 @@ namespace ScopeLap.Migrations
             modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.Track", b =>
                 {
                     b.Navigation("TrackConfigurations");
+                });
+
+            modelBuilder.Entity("ScopeLap.Models.DataBaseEngine.TrackConfiguration", b =>
+                {
+                    b.Navigation("Sessions");
                 });
 #pragma warning restore 612, 618
         }

@@ -47,7 +47,6 @@ namespace ScopeLap.Controllers
 
                     ModelState.Clear();
                     ViewBag.Message = $"Учетная запись для {account.Firstname} {account.Lastname} успешно создана. Можете войти в учетную запись.";
-
                 }
                 catch (DbUpdateException ex)
                 {

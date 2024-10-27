@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ScopeLap.Migrations
 {
     /// <inheritdoc />
-    public partial class inital : Migration
+    public partial class NoTrackDay : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -81,33 +81,6 @@ namespace ScopeLap.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Sessions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LapTime = table.Column<int>(type: "int", nullable: false),
-                    LapNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AccountId = table.Column<int>(type: "int", nullable: true),
-                    CarId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sessions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Sessions_Accounts_AccountId",
-                        column: x => x.AccountId,
-                        principalTable: "Accounts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Sessions_Cars_CarId",
-                        column: x => x.CarId,
-                        principalTable: "Cars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "TrackConfigurations",
                 columns: table => new
                 {
@@ -156,31 +129,37 @@ namespace ScopeLap.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TrackDays",
+                name: "Sessions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    LapTime = table.Column<int>(type: "int", nullable: false),
+                    LapNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TrackDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    LapSessionId = table.Column<int>(type: "int", nullable: false),
-                    TrackConfigId = table.Column<int>(type: "int", nullable: false),
-                    TracksId = table.Column<int>(type: "int", nullable: false)
+                    AccountId = table.Column<int>(type: "int", nullable: true),
+                    CarId = table.Column<int>(type: "int", nullable: false),
+                    TrackId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TrackDays", x => x.Id);
+                    table.PrimaryKey("PK_Sessions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TrackDays_Sessions_LapSessionId",
-                        column: x => x.LapSessionId,
-                        principalTable: "Sessions",
+                        name: "FK_Sessions_Accounts_AccountId",
+                        column: x => x.AccountId,
+                        principalTable: "Accounts",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Sessions_Cars_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Cars",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TrackDays_TrackConfigurations_TracksId",
-                        column: x => x.TracksId,
+                        name: "FK_Sessions_TrackConfigurations_TrackId",
+                        column: x => x.TrackId,
                         principalTable: "TrackConfigurations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -221,19 +200,14 @@ namespace ScopeLap.Migrations
                 column: "CarId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TrackConfigurations_TrackId",
-                table: "TrackConfigurations",
+                name: "IX_Sessions_TrackId",
+                table: "Sessions",
                 column: "TrackId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TrackDays_LapSessionId",
-                table: "TrackDays",
-                column: "LapSessionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TrackDays_TracksId",
-                table: "TrackDays",
-                column: "TracksId");
+                name: "IX_TrackConfigurations_TrackId",
+                table: "TrackConfigurations",
+                column: "TrackId");
         }
 
         /// <inheritdoc />
@@ -243,22 +217,19 @@ namespace ScopeLap.Migrations
                 name: "Commentaries");
 
             migrationBuilder.DropTable(
-                name: "TrackDays");
+                name: "Sessions");
 
             migrationBuilder.DropTable(
                 name: "Posts");
 
             migrationBuilder.DropTable(
-                name: "Sessions");
+                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "TrackConfigurations");
 
             migrationBuilder.DropTable(
                 name: "Accounts");
-
-            migrationBuilder.DropTable(
-                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "Tracks");

@@ -3,52 +3,44 @@
   "WorkspaceRootPath": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\lapsessions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\lapsessions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\controllers\\lapsessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:controllers\\lapsessionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\lapsessions\\mysessions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\lapsessions\\mysessions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\lapsessions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\lapsessions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\lapsessions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\lapsessions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\models\\listsessionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:models\\listsessionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\models\\sessionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:models\\sessionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\models\\registrationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:models\\registrationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\dbengine\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:dbengine\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\dbengine\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:dbengine\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\views\\account\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:views\\account\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|e:\\2023 - software engineer\\diploma\\scopelap\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB7937B7-564C-4C03-970B-4CAA45ABFBA8}|ScopeLap.csproj|solutionrelative:controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,162 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 305,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Account.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\DbEngine\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "DbEngine\\Models\\Account.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\DbEngine\\Models\\Account.cs",
-              "RelativeToolTip": "DbEngine\\Models\\Account.cs",
+              "DocumentIndex": 4,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T19:54:11.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "Models\\LoginViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T19:53:59.877Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T21:12:16.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "RegistrationViewModel.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\RegistrationViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\RegistrationViewModel.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\RegistrationViewModel.cs",
-              "RelativeToolTip": "Models\\RegistrationViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ListSessionViewModel.cs",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\ListSessionViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ListSessionViewModel.cs",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\ListSessionViewModel.cs",
+              "RelativeToolTip": "Models\\ListSessionViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T19:53:28.131Z",
+              "WhenOpened": "2024-10-27T20:59:37.767Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Car.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\DbEngine\\Models\\Car.cs",
-              "RelativeDocumentMoniker": "DbEngine\\Models\\Car.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\DbEngine\\Models\\Car.cs",
-              "RelativeToolTip": "DbEngine\\Models\\Car.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T19:52:45.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SessionViewModel.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\SessionViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\SessionViewModel.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\SessionViewModel.cs",
-              "RelativeToolTip": "Models\\SessionViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T19:52:31.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T19:16:03.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\LapSessions\\Create.cshtml",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\Create.cshtml",
-              "RelativeToolTip": "Views\\LapSessions\\Create.cshtml",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADYAAABOAAAA",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T18:51:03.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Registration.cshtml",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Account\\Registration.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Registration.cshtml",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Account\\Registration.cshtml",
-              "RelativeToolTip": "Views\\Account\\Registration.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T18:42:11.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserPage.cshtml",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Account\\UserPage.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\UserPage.cshtml",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\Account\\UserPage.cshtml",
-              "RelativeToolTip": "Views\\Account\\UserPage.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAEsAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-21T18:32:20.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LapSessionsController.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\LapSessionsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LapSessionsController.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\LapSessionsController.cs",
-              "RelativeToolTip": "Controllers\\LapSessionsController.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAiwD4AAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T18:32:16.345Z",
+              "WhenOpened": "2024-10-27T20:49:37.121Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T18:32:15.745Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\LapSessions\\Edit.cshtml",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\Edit.cshtml",
+              "RelativeToolTip": "Views\\LapSessions\\Edit.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T20:03:44.258Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAIwHIAAAA1AAAA",
+              "DocumentIndex": 8,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T18:07:11.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SessionViewModel.cs",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\SessionViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\SessionViewModel.cs",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Models\\SessionViewModel.cs",
+              "RelativeToolTip": "Models\\SessionViewModel.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwA8AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T18:32:14.917Z",
+              "WhenOpened": "2024-10-27T16:58:37.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CarsController.cs",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\CarsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CarsController.cs",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\CarsController.cs",
+              "RelativeToolTip": "Controllers\\CarsController.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T15:35:22.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\LapSessions\\Index.cshtml",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\Index.cshtml",
+              "RelativeToolTip": "Views\\LapSessions\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T09:31:54.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MySessions.cshtml",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\MySessions.cshtml",
+              "RelativeDocumentMoniker": "Views\\LapSessions\\MySessions.cshtml",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Views\\LapSessions\\MySessions.cshtml",
+              "RelativeToolTip": "Views\\LapSessions\\MySessions.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-27T09:31:24.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LapSessionsController.cs",
+              "DocumentMoniker": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\LapSessionsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LapSessionsController.cs",
+              "ToolTip": "E:\\2023 - software engineer\\DIPLOMA\\ScopeLap\\Controllers\\LapSessionsController.cs",
+              "RelativeToolTip": "Controllers\\LapSessionsController.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAD4v1YAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T13:37:41.037Z",
               "EditorCaption": ""
             }
           ]

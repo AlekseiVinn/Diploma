@@ -1,0 +1,38 @@
+﻿<nav id="sidebar">
+    <div class="sidebar-header">
+        <a asp-controller="Account" asp-action="UserPage"><h4>Моя страница:</h4></a>
+    </div>
+
+    <ul class="list-unstyled components">
+        <div>
+            <p> 
+                @ViewBag.UserName
+                <br/>ID: @ViewBag.Id | @ViewBag.FisrtName
+            </p>
+            <br>
+
+            <div>
+                Лучший результат:
+                <br>
+                -------Лучший результат:
+                <br>
+                -------трасса:
+                <br>
+                -------конфигурация:
+                <br>
+                -------авто:
+            </div>
+            
+        </div>
+        <li>
+            <a asp-controller="LapSessions" asp-action="MySessions">Посмотреть свои заезды</a>
+        </li>
+        <li>
+            <a asp-controller="LapSessions" asp-action="Create">Добавить новый заезд</a>
+        </li>
+        <br>
+        <li>
+            <a href="#">Добавить публикацию</a>
+        </li>
+    </ul>
+</nav>

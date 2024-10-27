@@ -1,42 +1,73 @@
-﻿@model ScopeLap.Models.DataBaseEngine.LapSession
+﻿@using ScopeLap.Models;
+@model ListSessionViewModel;
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    @await Html.PartialAsync("Account/_SidePanel")
 
-<div>
-    <h4>LapSession</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LapTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LapTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LapNote)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LapNote)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Account)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Account.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Car)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Car.Manufacturer)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <div>
+            <h2>Детали заезда:</h2>
+            <table cellpadding="10px">
+                <tr>
+                    <td><h5>Дата заезда:</h5></td>
+                    <td style="font-weight:bold">
+                        @Html.DisplayFor(model => model.SessionDate)
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><h5>Водитель:</h5></td>
+                    <td style="font-weight:bold">
+                        @Html.DisplayFor(model => model.Username)
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><h5>Автомобиль:</h5></td>
+                    <td style="font-weight:bold">
+                        @Html.DisplayFor(model => model.CarName)
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><h5>Трасса:</h5></td>
+                    <td style="font-weight:bold">
+                        @Html.DisplayFor(model => model.TrackName)
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><h5>Время круга, мс:</h5></td>
+                    <td style="font-weight:bold">
+                        @Html.DisplayFor(model => model.PrintTime)
+                    </td>
+                </tr>
+                <tr>
+                    <td><h5>Детали заезда:</h5></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold" colspan="2">
+                        @Html.DisplayFor(model => model.SessionNote)
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            @if (Model.UserId.ToString() == ViewBag.IdCheck)
+            {
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+            }
+            <a class="btn btn-outline-info" asp-action="Index">Назад</a>
+        </div>
+    </div>
 </div>

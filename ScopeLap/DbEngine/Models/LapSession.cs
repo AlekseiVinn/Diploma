@@ -12,6 +12,8 @@ namespace ScopeLap.Models.DataBaseEngine
 
         public string? LapNote { get; set; }
 
+        public DateOnly TrackDate { get; set; }
+
         public int? AccountId { get; set; }
 
         public Account? Account { get; set; } = null;
@@ -20,7 +22,9 @@ namespace ScopeLap.Models.DataBaseEngine
 
         public Car Car { get; set; } = null;
 
-        public List<TrackConfiguration> Tracks { get; } = [];
+        public int? TrackId { get; set; }
+
+        public TrackConfiguration? Track { get; set;}
 
     }
 }

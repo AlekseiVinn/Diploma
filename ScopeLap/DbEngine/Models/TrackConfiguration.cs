@@ -14,6 +14,6 @@ namespace ScopeLap.Models.DataBaseEngine
 
         public Track Track { get; set; } = null!;
 
-        public List<LapSession> Sessions { get; } = [];
+        public ICollection<LapSession> Sessions { get; } = new List<LapSession>();
     }
 }

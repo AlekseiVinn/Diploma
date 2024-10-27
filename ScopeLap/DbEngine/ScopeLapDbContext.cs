@@ -21,15 +21,8 @@ namespace ScopeLap.DataBaseEngine
         
         public DbSet<TrackConfiguration> TrackConfigurations { get; set; }
         
-        public DbSet<TrackDay> TrackDays{ get; set; }
-        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TrackConfiguration>()
-                .HasMany(e => e.Sessions)
-                .WithMany(e => e.Tracks)
-                .UsingEntity<TrackDay>();
-
             base.OnModelCreating(modelBuilder);
         }
 
