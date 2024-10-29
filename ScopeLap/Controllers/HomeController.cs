@@ -7,6 +7,7 @@ using ScopeLap.Models;
 using ScopeLap.Tools;
 using System.Diagnostics;
 using System.Security.Claims;
+using System;
 
 namespace ScopeLap.Controllers
 {
@@ -23,6 +24,11 @@ namespace ScopeLap.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.User.Identity.Name != null)
+            { 
+                return RedirectToAction("UserPage", "Account");
+            }
+ 
             return View();
         }
 

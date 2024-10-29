@@ -1,9 +1,4 @@
-﻿using ScopeLap.DataBaseEngine;
-using ScopeLap.Models.DataBaseEngine;
-using System.ComponentModel.DataAnnotations;
-using System.Configuration;
-
-namespace ScopeLap.Models
+﻿namespace ScopeLap.Models
 {
     public class ListSessionViewModel
     {
