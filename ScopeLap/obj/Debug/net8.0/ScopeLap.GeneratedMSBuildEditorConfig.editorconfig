@@ -38,26 +38,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Cars/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Cars/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Cars/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Cars/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Cars/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/LapSessions/MySessions.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwU2Vzc2lvbnNcTXlTZXNzaW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/LapSessions/_addCar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFwU2Vzc2lvbnNcX2FkZENhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/2023 - software engineer/DIPLOMA/ScopeLap/Views/Shared/Account/_SidePanel.cshtml]
