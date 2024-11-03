@@ -40,14 +40,13 @@
                     </div>
                     <br />
                     <div class="form-group">
-                        <label asp-for="ModDescription" class="control-label"></label>
+                        <label asp-for="ModDescription" class="control-label">Описание модификации автомобиля:</label>
                         <textarea asp-for="ModDescription" rows="2" placeholder="необязательное поле" class="form-control"></textarea>
                         <span asp-validation-for="ModDescription" class="text-danger"></span>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                        <button type="submit"  asp-controller="Cars" asp-action="Create" formmethod="post" class="btn btn-primary">Save changes</button>
+                        <button type="submit" asp-controller="Cars" asp-action="Create" formmethod="post" class="btn btn-primary">Добавить</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
                     </div>
                 </form>
             </div>

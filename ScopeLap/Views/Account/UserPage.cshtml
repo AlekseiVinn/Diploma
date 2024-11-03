@@ -1,4 +1,9 @@
-﻿
+﻿@using ScopeLap.Models.DataBaseEngine;
+@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "Главная";
+}
 
 <div class="wrapper">
     <!-- Sidebar  -->
@@ -9,18 +14,76 @@
     <div id="content">
 
         <h2>Новые записи:</h2>
-        <button class="btn-outline-primary">Добавить публикацию</button>
+        <a type="button" class="btn btn-outline-primary" asp-controller="Posts" asp-action="Create">Добавить публикацию</a>
         
         <div class="line"></div>
 
         <div id="posts">
 
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <table class="table">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td colspan="2">
+                                <div style="font-weight:bolder">Пользователь: @@@Html.DisplayFor(modelItem => item.Account.Username) </div>
+                                <div class="border-top"> 
+                                    @Html.DisplayFor(modelItem => item.PostText)
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr style="border:thin">
+                            <td colspan="2">
+                                <div style="font-size:12px">Дата публикации: @Html.DisplayFor(modelItem => item.Posted)</div>
+                                <br />
+                                <a asp-action="Details" asp-controller="Posts" asp-route-id="@item.Id" class="link border-bottom">
+                                    Комментарии: @Html.DisplayFor(modelItem => item.Commentaries.Count)
+                                </a>
+
+                            </td>
+                            @if (item.AccountID.ToString() == ViewBag.IdCheck)
+                            {
+                                <td align="right" style="font-size:11px">
+                                    <div>
+                                        <form method="get" asp-action="Edit" asp-controller="Posts" asp-route-id="@item.Id">
+                                            <button type="submit" style="block-size:fit-content; font-size:inherit" class="btn btn-outline-success">Редактировать</button>
+                                        </form>
+                                        <button type="button" style="block-size:fit-content; font-size:inherit" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target=@($"#deleteModal{@item.Id}")>
+                                            Удалить запись
+                                        </button>
+                                    </div>
+
+                                    <!-- Modal Delete-->
+                                    <div class="modal fade" id=@($"deleteModal{@item.Id}") tabindex="0" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="exampleModalLabel">Удаление</h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h4>Хотите удалить публикацию?</h4>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    @using (Html.BeginForm("Delete", "Posts", new { Id = item.Id }, FormMethod.Post))
+                                                    {
+                                                        <button type="submit" class="btn btn-danger">
+                                                           Удалить
+                                                        </button>
+                                                    }
+                                                    
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
 
     </div>

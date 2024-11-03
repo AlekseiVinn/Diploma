@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScopeLap.DataBaseEngine;
 
@@ -11,9 +12,11 @@ using ScopeLap.DataBaseEngine;
 namespace ScopeLap.Migrations
 {
     [DbContext(typeof(ScopeLapDbContext))]
-    partial class ScopeLapDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241102123601_postupdated2")]
+    partial class postupdated2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,7 +175,7 @@ namespace ScopeLap.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountID")
+                    b.Property<int?>("AccountID")
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
@@ -279,9 +282,7 @@ namespace ScopeLap.Migrations
                 {
                     b.HasOne("ScopeLap.DataBaseEngine.Account", "Account")
                         .WithMany("Posts")
-                        .HasForeignKey("AccountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccountID");
 
                     b.Navigation("Account");
                 });

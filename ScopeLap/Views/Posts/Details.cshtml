@@ -1,0 +1,107 @@
+﻿@using ScopeLap.Models.DataBaseEngine;
+@model Post
+
+@{
+    ViewData["Title"] = $"Пост №{Model.Id}";
+}
+
+
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    @await Html.PartialAsync("Account/_SidePanel")
+
+
+    <!-- Page Content  -->
+    <div id="content">
+        <div id="post">
+            <table style="border: 2px solid;" width="100%">
+                <tr style="border: 1px solid">
+                    <td colspan="2" style="font-weight:bolder">Пользователь @@@Html.DisplayFor(model => model.Account.Username) - @Html.DisplayFor(model => model.Posted) написал(а):</td>
+                </tr>
+                <tr >
+                    <td>
+                        <div style="min-height:150px; align-content:center;">
+                            @Html.DisplayFor(model => model.PostText)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr />
+        <a type="button" class="btn btn-outline-primary" asp-controller="Commentaries" asp-action="Create" asp-route-PostId="@Model.Id">Добавить комментарий:</a>
+        <a asp-controller="Account" asp-action="UserPage">Назад</a>
+        <hr />
+
+        <div id="commentaries">
+            <h6>Комментарии:</h6>
+            <table class="table" style="border: 1px solid darkgrey">
+                <tbody>
+                    @foreach (var item in Model.Commentaries)
+                    {
+                        <tr style="border: 1px solid darkgrey">
+                            <td style="border: 1px solid darkgrey">
+                                <div style="font-weight:bolder">Пользователь: @@@Html.DisplayFor(modelItem => item.Account.Username) </div>
+                                <div class="border-top" div style="min-height:50px; align-content:center;">
+                                    @Html.DisplayFor(modelItem => item.CommentText)
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr style="border:thin">
+                            <td>
+                                <div style="font-size:12px">написал(а) @Html.DisplayFor(modelItem => item.Commented)</div>
+
+                            </td>
+                            @if (item.AccountID.ToString() == ViewBag.IdCheck || Model.AccountID.ToString() == ViewBag.IdCheck)
+                            {
+                                <td align="right" style="font-size:11px">
+                                    <div>
+
+                                        @if (item.AccountID.ToString() == ViewBag.IdCheck)
+                                        {
+                                            <form method="get" asp-action="Edit" asp-controller="Commentaries" asp-route-id="@item.Id">
+                                                <button type="submit" style="block-size:fit-content; font-size:inherit" class="btn btn-outline-success">Редактировать</button>
+                                            </form>
+                                        }
+                                        
+                                        <button type="button" style="block-size:fit-content; font-size:inherit" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target=@($"#deleteModal{@item.Id}")>
+                                            Удалить запись
+                                        </button>
+                                    </div>
+
+                                    <!-- Modal Delete-->
+                                    <div class="modal fade" id=@($"deleteModal{@item.Id}") tabindex="0" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Удаление</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h6>Удалить комментарий?</h6>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    @using (Html.BeginForm("Delete", "Commentaries", new { Id = item.Id }, FormMethod.Post))
+                                                    {
+                                                        <button type="submit" class="btn btn-danger">
+                                                            Удалить
+                                                        </button>
+                                                    }
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

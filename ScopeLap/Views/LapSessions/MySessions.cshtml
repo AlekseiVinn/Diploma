@@ -2,7 +2,7 @@
 @model IEnumerable<ListSessionViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Мои заезды";
 }
 
 <div class="wrapper">
@@ -13,7 +13,7 @@
     <!-- Page Content  -->
     <div id="content">
 
-        <h1>Заезды</h1>
+        <h1>Мои заезды</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -43,12 +43,12 @@
                         <td>
                             <a type="button" class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.Id">Подробности</a>
                             <a type="button" class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target=@($"#deleteModal{@item.Id}")>
                                 Удалить
                             </button>
                             
                             <!-- Modal Delete-->
-                            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal fade" id=@($"deleteModal{@item.Id}") tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <form asp-action="Delete" method="post" asp-route-id="@item.Id">
                                         <div class="modal-content">

@@ -2,7 +2,7 @@
 @model ListSessionViewModel;
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Подробности заезда";
 }
 
 <div class="wrapper">
@@ -13,7 +13,7 @@
     <!-- Page Content  -->
     <div id="content">
         <div>
-            <h2>Детали заезда:</h2>
+            <h2>Подробности заезда:</h2>
             <table cellpadding="10px">
                 <tr>
                     <td><h5>Дата заезда:</h5></td>
@@ -65,7 +65,7 @@
         <div>
             @if (Model.UserId.ToString() == ViewBag.IdCheck)
             {
-                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@Model?.Id">Редактировать заезд</a>
             }
             <a class="btn btn-outline-info" asp-action="Index">Назад</a>
         </div>

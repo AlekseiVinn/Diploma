@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScopeLap.DataBaseEngine;
 
@@ -11,9 +12,11 @@ using ScopeLap.DataBaseEngine;
 namespace ScopeLap.Migrations
 {
     [DbContext(typeof(ScopeLapDbContext))]
-    partial class ScopeLapDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241102121120_postupdated")]
+    partial class postupdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

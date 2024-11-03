@@ -1,7 +1,7 @@
-﻿@model IEnumerable<ScopeLap.Models.DataBaseEngine.LapSession>
+﻿@model IEnumerable<ListSessionViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Топ 100";
 }
 
 <div class="wrapper">
@@ -19,18 +19,20 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.LapTime)
+                        Трасса
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.LapNote)
+                        Время
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Account)
+                        Авто
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car)
+                        Водитель
                     </th>
-                    <th></th>
+                    <th>
+                        Дата заезда
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -38,19 +40,22 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LapTime)
+                            @Html.DisplayFor(modelItem => item.TrackName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LapNote)
+                            @Html.DisplayFor(modelItem => item.PrintTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Account.Email)
+                            @Html.DisplayFor(modelItem => item.CarName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Car.Manufacturer)
+                            @Html.DisplayFor(modelItem => item.Username)
                         </td>
                         <td>
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            @Html.DisplayFor(modelItem => item.SessionDate)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration: underline;">Подробности</a>
                         </td>
                     </tr>
                 }

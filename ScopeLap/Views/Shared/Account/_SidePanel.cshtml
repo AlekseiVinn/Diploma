@@ -7,23 +7,18 @@
         <div>
             <p> 
                 @ViewBag.UserName
-                <br/>ID: @ViewBag.Id | @ViewBag.FisrtName
+                <br />ID: @ViewBag.Id | @ViewBag.FullName
             </p>
-            <br>
 
-            <div>
+            <ul class="list-group-horizontal">
                 Лучший результат:
-                <br>
-                -------Лучший результат:
-                <br>
-                -------трасса:
-                <br>
-                -------конфигурация:
-                <br>
-                -------авто:
-            </div>
-            
+                <li>время: @ViewBag.BestTime c</li>
+                <li>трасса, конфигурация: @ViewBag.Track</li>
+                <li>авто: @ViewBag.Car
+                </li>
+            </ul>
         </div>
+        <br>
         <li>
             <a asp-controller="LapSessions" asp-action="MySessions">Посмотреть свои заезды</a>
         </li>
@@ -32,7 +27,7 @@
         </li>
         <br>
         <li>
-            <a href="#">Добавить публикацию</a>
+            <a asp-controller="Posts" asp-action="Create">Добавить публикацию</a>
         </li>
     </ul>
 </nav>

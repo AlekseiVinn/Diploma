@@ -1,0 +1,32 @@
+﻿@using ScopeLap.Models.DataBaseEngine;
+@model Post
+
+@{
+    ViewData["Title"] = "Редактирование публикации";
+}
+
+<h1>Редактирование</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AccountID" value="@Convert.ToInt32(ViewBag.AccId)" />
+            <input type="hidden" asp-for="Posted" value="@Convert.ToDateTime(ViewBag.Posted)" />
+            <input type="hidden" asp-for="Id" />
+            
+            <div class="form-group">
+                <textarea asp-for="PostText" rows="8" class="form-control"></textarea>
+                <span asp-validation-for="PostText" class="text-danger"></span>
+            </div>
+            <br />
+            
+            <div class="form-group">
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+                <a asp-controller="Account" asp-action="UserPage">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -17,11 +17,6 @@ namespace ScopeLap.Controllers
         public AccountController(ScopeLapDbContext context) { 
             this._context = context;
         }
-        
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public IActionResult Registration() 
         {
@@ -100,12 +95,36 @@ namespace ScopeLap.Controllers
         }
 
         [Authorize]
-        public IActionResult UserPage() 
+        public async Task<IActionResult> UserPage() 
         {
-            ViewBag.UserName = HttpContext.User.Identity.Name;
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
-            return View(); 
+            ViewBag.UserName = $"@{HttpContext.User.Identity.Name}";
+            ViewBag.IdCheck = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}" ;
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
+
+            var scopeLapDbContext = await _context.Posts.OrderByDescending(p => p.Posted)
+                .Include(p => p.Account)
+                .Include(p => p.Commentaries.OrderBy(c=> c.Commented))
+                .ToListAsync();
+
+            return View(scopeLapDbContext);
         }
 
         public IActionResult Logout()

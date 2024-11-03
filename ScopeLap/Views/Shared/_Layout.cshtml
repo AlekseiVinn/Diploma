@@ -12,24 +12,18 @@
 <body>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-                </a>
+            <div class="mb-3 mb-md-0">
+
             </div>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary" style="font-weight:bold">ScopeLap</a></li>
-                <li><a href="#" class="nav-link px-2">Features</a></li>
-                <li><a href="#" class="nav-link px-2">About</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About" class="nav-link px-2">О проекте</a></li>
+                <li><a asp-area="" asp-controller="Lapsessions" asp-action="Index" class="nav-link px-2">Топ 100 заездов</a></li>
             </ul>
 
             @await Html.PartialAsync("_LoginPartial")
 
-@*             <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary" asp-area="" asp-controller="Users" asp-action="Create">Sign-up</button>
-            </div> *@
         </header>
     </div>
 

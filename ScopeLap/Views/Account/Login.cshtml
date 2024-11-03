@@ -1,15 +1,15 @@
 ﻿@model LoginViewModel
 
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Вход";
 }
 
-<h1>Login</h1>
+<h1>Вход</h1>
 
 <hr/>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -22,16 +22,15 @@
                 <input asp-for="HashPass" class="form-control" />
                 <span asp-validation-for="HashPass" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary"/>
+                <input type="submit" value="Войти" class="btn btn-primary"/>
+                <br />
+                Ещё не зарегистрированы?
+                <br /><a asp-action="Registration" style="text-decoration: underline;">Создать учетную запись.</a>
             </div>
         </form>
 
     </div>
 </div>
 
-
-<div>
-    Ещё не зарегистрированы? <a asp-action="Registration">Создать учетную запись.</a>
-
-</div>

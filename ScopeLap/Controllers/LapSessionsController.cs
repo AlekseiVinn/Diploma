@@ -32,53 +32,91 @@ namespace ScopeLap.Controllers
         // GET: LapSessions
         public async Task<IActionResult> Index()
         {
-            ViewBag.UserName = HttpContext.User.Identity.Name;
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
-            
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
 
-            var scopeLapDbContext = _context.Sessions
-                .Include(l => l.Account)
-                .Include(l => l.Car)
-                .Include(l => l.Track);
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
+
+            //var userSessions = await _context.Sessions
+            //    .OrderBy(session => session.TrackId)
+            //    .ThenBy(session => session.LapTime)
+            //    .Include(l => l.Account)
+            //    .Include(l => l.Car)
+            //    .Include(l => l.Track)
+            //    .Select(session =>
+            //        new ListSessionViewModel
+            //        {
+            //            Id = session.Id,
+            //            Time = session.LapTime,
+            //            PrintTime = (
+            //                $"{(session.LapTime / 60000).ToString().PadLeft(2, '0')}" +
+            //                $":{(session.LapTime % 60000 / 1000).ToString().PadLeft(2, '0')}" +
+            //                $":{(session.LapTime % 1000).ToString().PadLeft(3, '0')}"
+            //            ),
+            //            CarID = session.Car.Id,
+            //            CarName = $"{session.Car.Manufacturer} {session.Car.Model}",
+            //            UserId = session.Account.Id,
+            //            Username = $"{session.Account.Firstname} {session.Account.Lastname}",
+            //            TrackId = session.Track.Track.Id,
+            //            TrackConfigId = (int)session.TrackId,
+            //            TrackName = $"{session.Track.Track.Name}: {session.Track.Name} - {session.Track.Length} м",
+            //            SessionDate = session.TrackDate
+            //        }
+            //    )
+            //    .ToListAsync();
+
+            //return View(userSessions);
+
+
+            var listSessions = await ListSessionViewModel.getTop100(_context);
+                
             
-            return View(await scopeLapDbContext.ToListAsync());
+            return View(listSessions);
         }
 
         public async Task<IActionResult> MySessions()
         {
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
-            ViewBag.UserName = HttpContext.User.Identity.Name;
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
+            
 
-            int userId = Convert.ToInt32(ViewBag.Id);
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
 
-            var userSessions = await _context.Sessions.Where(acc => acc.AccountId == userId)
-                .Include(l => l.Account)
-                .Include(l => l.Car)
-                .Include(l => l.Track)
-                .Select(
-                    session => new ListSessionViewModel
-                    {
-                        Id = session.Id,
-                        Time = session.LapTime,
-                        PrintTime = (
-                            $"{(session.LapTime / 60000).ToString().PadLeft(2, '0')}" +
-                            $":{(session.LapTime % 60000 / 1000).ToString().PadLeft(2, '0')}" +
-                            $":{(session.LapTime % 1000).ToString().PadLeft(3, '0')}"
-                        ),
-                        CarID = session.Car.Id,
-                        CarName = $"{session.Car.Manufacturer} {session.Car.Model}",
-                        UserId = session.Account.Id,
-                        Username = $"{session.Account.Firstname} {session.Account.Lastname}",
-                        TrackId = session.Track.Track.Id,
-                        TrackConfigId = (int)session.TrackId,
-                        TrackName = $"{session.Track.Track.Name}: {session.Track.Name} - {session.Track.Length} м",
-                        SessionDate = session.TrackDate
-                    }
-                )
-                .ToListAsync();
-
+            var userSessions = await ListSessionViewModel
+                .getMySessions(_context, Convert.ToInt32(ViewBag.Id));
+                
             return View(userSessions);
         }
 
@@ -89,53 +127,62 @@ namespace ScopeLap.Controllers
              {
                  return NotFound();
              }
+            ViewBag.IdCheck = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
 
-             ViewBag.UserName = HttpContext.User.Identity.Name;
-             ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-             ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
-             ViewBag.IdCheck = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
 
-            var userSession = await _context.Sessions
-                .Include(l => l.Account)
-                .Include(l => l.Car)
-                .Include(l => l.Track)
-                .Select(
-                     session => new ListSessionViewModel{
-                         Id = session.Id,
-                         PrintTime = (
-                             $"{(session.LapTime / 60000).ToString().PadLeft(2, '0')}" +
-                             $":{(session.LapTime % 60000 / 1000).ToString().PadLeft(2, '0')}" +
-                             $":{(session.LapTime % 1000).ToString().PadLeft(3, '0')}"
-                         ),
-                         CarID = session.Car.Id,
-                         CarName = $"{session.Car.Manufacturer} {session.Car.Model}",
-                         UserId = session.Account.Id,
-                         Username = $"{session.Account.Firstname} {session.Account.Lastname}",
-                         TrackId = session.Track.Track.Id,
-                         TrackConfigId = (int)session.TrackId,
-                         TrackName = $"{session.Track.Track.Name}: {session.Track.Name} - {session.Track.Length} м",
-                         SessionDate = session.TrackDate,
-                         SessionNote = session.LapNote
-                     }
-                 )
-                .SingleOrDefaultAsync(us => us.Id == id);
-
+            var userSession = await ListSessionViewModel
+                .getSessionByIdAsync(_context, (int)id);
+                
              if (userSession == null)
              {
                  return NotFound();
              }
 
              return View(userSession);
-
-
         }
 
         // GET: LapSessions/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewBag.UserName = HttpContext.User.Identity.Name;
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
+
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
             ViewBag.DefaultDate = DateTime.Today.Date.ToShortDateString();
 
             var cars = _context.Cars
@@ -164,9 +211,26 @@ namespace ScopeLap.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SessionViewModel session)
         {
-            ViewBag.UserName = HttpContext.User.Identity.Name;
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
+
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
 
             if (ModelState.IsValid)
             {
@@ -192,10 +256,10 @@ namespace ScopeLap.Controllers
                     ModelState.AddModelError("", "Ошибка создания  заезда, попробуйте позже");
                     return View(session);
                 }
-                return View();
+                return RedirectToAction("UserPage", "Account");
             }
 
-            return View(session);
+            return RedirectToAction("Create", "LapSessions");
         }
 
         // GET: LapSessions/Edit/5
@@ -206,9 +270,27 @@ namespace ScopeLap.Controllers
                 return NotFound();
             }
 
-            ViewBag.UserName = HttpContext.User.Identity.Name;
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
+
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
+
             ViewBag.DefaultDate = DateTime.Today.Date.ToShortDateString();
 
             var userSession = await _context.Sessions
@@ -281,9 +363,26 @@ namespace ScopeLap.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, SessionViewModel lapSession)
         {
-            ViewBag.UserName = HttpContext.User.Identity.Name;
-            ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
-            ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+            ViewBag.Username = $"@{HttpContext.User.Identity.Name}";
+
+            var userBest = await ListSessionViewModel
+                .getBestAsync(_context, Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First()));
+            if (userBest is null)
+            {
+                ViewBag.FisrtName = HttpContext.User.Claims.Where(x => x.Type == "Name").Select(x => x.Value).First();
+                ViewBag.Id = HttpContext.User.Claims.Where(x => x.Type == "Id").Select(x => x.Value).First();
+                int usId = Convert.ToInt32(ViewBag.Id);
+                var usAcc = _context.Accounts.FirstOrDefault(x => x.Id == usId);
+                ViewBag.FullName = $"{usAcc.Firstname} {usAcc.Lastname}";
+            }
+            else
+            {
+                ViewBag.Id = userBest.UserId;
+                ViewBag.FullName = userBest.Username;
+                ViewBag.BestTime = userBest.PrintTime;
+                ViewBag.Track = userBest.TrackName;
+                ViewBag.Car = userBest.CarName;
+            }
 
             if (id != lapSession.Id)
             {
